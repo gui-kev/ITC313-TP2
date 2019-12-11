@@ -6,5 +6,5 @@
 	-> Programme Magasin-test permettant de créer un objet (vide) de type magasin.
 	
 === Question 2 : Création de la classe Produit
-	->  Création de la classe Produit
-	
+	-> Création de la classe Produit
+	-> Surcharge de l'opérateur << pour pouvoir afficher un produit
