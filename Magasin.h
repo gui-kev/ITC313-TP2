@@ -7,9 +7,10 @@
 class Magasin
 {
 public:
-	Magasin(std::vector<Product> prod,
-			std::vector<Client> clt,
-			std::vector<Order> cmd);
+	Magasin(std::vector<Product*> prod,
+			std::vector<Client*> clt,
+			std::vector<Order*> cmd);
+
 
 private:
 	std::vector<Product*> m_products;
