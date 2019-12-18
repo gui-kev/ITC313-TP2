@@ -8,13 +8,14 @@ class Product
 {
 public:
 	Product(std::string title="PS4",
-			std::string desc="Console de jeu de marque Sony",//qtt=quantité disponible
+			std::string desc="Console de jeu",//qtt=quantité disponible
 			int qtt=10, float price=249.99); //desc= description produit
 	std::string getTitle() const;
 	std::string getDesc() const;
 	int getQtt() const;
 	float getPrice() const;
-	int setQtt(int new_qtt);// setQtt permet de modifier la quantité disponible.
+	void setQtt(int new_qtt);// setQtt permet de modifier la quantité disponible.
+	friend std::istream &operator >> (std::istream &input, Product &p);
 
 private:
 	std::string m_title;
@@ -23,7 +24,7 @@ private:
 	float m_price;
 
 };
-std::ostream &operator <<(std::ostream &ouput, Product &p);
 
+std::ostream &operator <<(std::ostream &ouput, Product &p);
 
 #endif

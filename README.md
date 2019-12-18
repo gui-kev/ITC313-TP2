@@ -8,3 +8,9 @@
 === Question 2 : Création de la classe Produit
 	-> Création de la classe Produit
 	-> Surcharge de l'opérateur << pour pouvoir afficher un produit
+
+=== Question 3 : Ajout de fonctionnalités à Magasin
+	-> Ajouter à la classe Magasin une méthode permettant d'ajouter un nouveau produit au magasin.
+	-> Ecrire une méthode permettant d'afficher à l'écran tous les produits référencés dans le magasin.
+	->Ecrire une méthode permettant d'afficher à l'écran un produit sélectionné par son nom.
+	-> Ecrire une méthode permettant de mettre à jour la quantité d'un produit sélectionné par son nom.
