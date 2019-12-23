@@ -26,6 +26,10 @@ void Client::addProduct(Product p) {
 	m_panier.push_back(&p);
 }
 
+void Client::clearPanier(){
+	m_panier.clear();
+}
+
 std::ostream &operator << (std::ostream &output, Client &c){
 	output << " ID : "<<c.m_uid<<" -  Prenom : "<<c.m_prenom<<" -  Nom : "<< c.m_nom << std::endl;
 	return output; 

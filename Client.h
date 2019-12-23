@@ -16,6 +16,7 @@ public:
 	std::string getNom() const;
 	std::string getPrenom() const;
 	void addProduct(Product p);
+	void clearPanier();
 	friend std::ostream &operator << (std::ostream &ouput, Client &c);
 
 private:

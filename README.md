@@ -18,3 +18,5 @@
 === Question 4 : Création de la classe Client
 	-> Création de la classe Client
 	-> Ajout d'une méthode permettant d'ajouter un produit au panier
+	-> Ajout d'une méthode permettant de vider le panier
+	
