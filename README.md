@@ -14,3 +14,6 @@
 	-> Ecrire une méthode permettant d'afficher à l'écran tous les produits référencés dans le magasin.
 	->Ecrire une méthode permettant d'afficher à l'écran un produit sélectionné par son nom.
 	-> Ecrire une méthode permettant de mettre à jour la quantité d'un produit sélectionné par son nom.
+
+=== Question 4 : Création de la classe Client
+	->Création de la classe Client

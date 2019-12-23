@@ -13,13 +13,6 @@ Magasin::Magasin(std::vector<Product*> prod)
 }
 
 void Magasin::addProduct(Product p){
-	//Product* a = &p;
-	m_products.push_back(&p);
-}
-
-void Magasin::addProduct(){
-	Product p;
-	std::cin>>p;
 	m_products.push_back(&p);
 }
 
@@ -41,7 +34,6 @@ void Magasin::displaySelectP(std::string title){
 			else std::cout<<"Pas de produit "<<title<<"."<<std::endl;
 		}
 	}
-	
 }
 
 void Magasin::updateProduct(std::string title, int new_qtt){
@@ -56,9 +48,3 @@ void Magasin::updateProduct(std::string title, int new_qtt){
 	}
 }
 
-
-/*void Magasin::addProduct(std::string title, std::string desc, int qtt, float price){
-	Product p(title,desc,qtt,price);
-	Product* a = &p;
-	m_products.push_back(a);
-}*/

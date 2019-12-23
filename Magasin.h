@@ -12,7 +12,6 @@ public:
 			//std::vector<Client*> clt,
 			//std::vector<Order*> cmd);
 	void addProduct(Product p);
-	void addProduct();
 	void displayProduct();
 	void displaySelectP(std::string title);// displaySelectP: permet d'afficher un produit sélectionné
 	void updateProduct(std::string title, int qtt);
