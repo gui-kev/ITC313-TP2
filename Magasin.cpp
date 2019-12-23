@@ -3,12 +3,11 @@
 #include <cstring>
 #include "Magasin.h"
 
-Magasin::Magasin(std::vector<Product*> prod)
-				 //std::vector<Client*> clt,
+Magasin::Magasin(std::vector<Product*> prod, std::vector<Client*> clt)
 				 //std::vector<Order*> cmd)
- {
+{
 	m_products=prod;
-	//m_clients=clt;
+	m_clients=clt;
 	//m_orders=cmd;
 }
 
@@ -48,3 +47,6 @@ void Magasin::updateProduct(std::string title, int new_qtt){
 	}
 }
 
+void Magasin::addClient(Client c){
+	m_clients.push_back(&c);
+}

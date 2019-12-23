@@ -21,5 +21,8 @@
 	-> Ajout d'une méthode permettant de vider le panier
 	-> Ajout d'une méthode permettant de modifier la quantité d'un produit ajouté au panier d'achat
 	-> Ajout d'une méthode permettant de supprimer un produit du panier d'achat
-	->Surcharge de l'opérateur pour afficher un client
+	-> Surcharge de l'opérateur pour afficher pour afficher toutes les informations du client
+
+=== Question 5 : Ajout de fonctionnalités à la classe Magasin
+	-> Ajout de la méthode permettant d'ajouter un nouveau client 
 	
