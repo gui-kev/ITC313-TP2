@@ -1,6 +1,7 @@
 
 #include<iostream>
 #include<string>
+#include<array>
 #include "Client.h"
 
 Client::Client(int uid,std::vector<Product* > panier,
@@ -55,6 +56,11 @@ void Client::delproduct(std::string titleP){
 }
 
 std::ostream &operator << (std::ostream &output, Client &c){
-	output << " ID : "<<c.m_uid<<" -  Prenom : "<<c.m_prenom<<" -  Nom : "<< c.m_nom << std::endl;
-	return output; 
+	int a = c.m_panier.size(); 
+	output << " ID : "<<c.m_uid<<" -  Prenom : "<<c.m_prenom
+		   <<" -  Nom : "<< c.m_nom
+		   <<std::endl<<"*****Panier*****"<<std::endl;
+	for (int i=0; i<a; i++)
+		std::cout<<*c.m_panier.at(i);
+	return output;
 }

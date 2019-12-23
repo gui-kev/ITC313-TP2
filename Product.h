@@ -9,7 +9,7 @@ class Product
 public:
 	Product(std::string title="PS4",
 			std::string desc="Console de jeu",//qtt=quantité disponible
-			int qtt=10, float price=249.99); //desc= description produit
+			int qtt=1, float price=249.99); //desc= description produit
 	std::string getTitle() const;
 	std::string getDesc() const;
 	int getQtt() const;

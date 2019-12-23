@@ -32,7 +32,7 @@ void Product::setQtt(int new_qtt){
 
 std::ostream &operator << (std::ostream &output, Product &p)
 {
-	output << p.getTitle() <<" - "<< p.getDesc()<<" -"<< p.getQtt() <<"-"<< p.getPrice()<<"£" << std::endl;
+	output << p.getTitle() <<" - "<< p.getDesc()<<" - "<< p.getQtt() <<" - "<< p.getPrice()<<"£" << std::endl;
 	return output; 
 }
 
