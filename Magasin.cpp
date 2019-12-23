@@ -50,3 +50,10 @@ void Magasin::updateProduct(std::string title, int new_qtt){
 void Magasin::addClient(Client c){
 	m_clients.push_back(&c);
 }
+
+void Magasin::displayClient(){
+	int a = m_clients.size();
+	for (int i=0; i<a; i++){
+		std::cout<< *m_clients.at(i)<<std::endl;
+	}
+}

@@ -25,4 +25,6 @@
 
 === Question 5 : Ajout de fonctionnalités à la classe Magasin
 	-> Ajout de la méthode permettant d'ajouter un nouveau client 
+	-> Ajout de la méthode permettant d'afficher tous les clients du magasin
+	
 	

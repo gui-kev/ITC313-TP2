@@ -16,6 +16,7 @@ public:
 	void displaySelectP(std::string title);// displaySelectP: permet d'afficher un produit sélectionné
 	void updateProduct(std::string title, int qtt);
 	void addClient(Client c);
+	void displayClient();
 
 private:
 	std::vector<Product*> m_products;
