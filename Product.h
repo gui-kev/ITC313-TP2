@@ -15,7 +15,7 @@ public:
 	int getQtt() const;
 	float getPrice() const;
 	void setQtt(int new_qtt);// setQtt permet de modifier la quantité disponible.
-	friend std::istream &operator >> (std::istream &input, Product &p);
+	friend std::istream &operator >> (std::istream &input, Product &p);//surcharge de l'opérateur "<<" pour afficher un produit
 
 private:
 	std::string m_title;

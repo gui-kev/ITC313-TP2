@@ -15,12 +15,12 @@ public:
 	int getUid() const;
 	std::string getNom() const;
 	std::string getPrenom() const;
-	void addProduct(Product p);
-	void clearPanier();
-	void modifyProduct(std::string titleProduct, int newqtt);
-	void delproduct(std::string titleProduct);
+	void addProduct(Product p); // méthode permettant d'ajouter un produit au panier d'achat du client
+	void clearPanier(); // permet de vider le panier d'achat
+	void modifyProduct(std::string titleProduct, int newqtt);//permet de modifier la quantité du produit d'un panier d'achat
+	void delproduct(std::string titleProduct); //permet de supprimer un produit du panier d'achat
 
-	friend std::ostream &operator << (std::ostream &ouput, Client &c);
+	friend std::ostream &operator << (std::ostream &ouput, Client &c);//surcharge de l'opérateur "<<" pour afficher toutes les informations du client
 
 private:
 	const int m_uid;

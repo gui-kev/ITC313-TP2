@@ -70,3 +70,17 @@ void Magasin::displaySelectClt(int id, std::string nom){
 	}
 }
 
+void Magasin::addprodClt(Product p, Client* c){
+	if (m_clients.empty()){
+		m_clients.push_back(c);
+		m_clients.front()->addProduct(p);
+	}
+	else {
+		int a =m_clients.size();
+		for (int i=0; i<a; i++)
+			if(m_clients.at(i)->getUid()==c->getUid())
+				m_clients.at(i)->addProduct(p);
+	}
+
+
+}
