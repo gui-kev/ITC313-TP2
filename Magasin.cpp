@@ -33,6 +33,8 @@ void Magasin::displaySelectP(std::string title){
 			else std::cout<<"Pas de produit "<<title<<"."<<std::endl;
 		}
 	}
+
+
 }
 
 void Magasin::updateProduct(std::string title, int new_qtt){
@@ -53,7 +55,18 @@ void Magasin::addClient(Client c){
 
 void Magasin::displayClient(){
 	int a = m_clients.size();
-	for (int i=0; i<a; i++){
+	for (int i=0; i<a; i++)
 		std::cout<< *m_clients.at(i)<<std::endl;
+}
+
+void Magasin::displaySelectClt(int id, std::string nom){
+	if (m_clients.empty())
+		std::cout<<"Pas de client"<<std::endl;
+	else {
+		int a = m_clients.size();
+		for (int i=0; i<a; i++)
+			if(m_clients.at(i)->getUid()==id || nom.compare(m_clients.at(i)->getNom())==1)
+				std::cout<<*m_clients.at(i)<<std::endl;
 	}
 }
+

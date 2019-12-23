@@ -17,6 +17,7 @@ public:
 	void updateProduct(std::string title, int qtt);
 	void addClient(Client c);
 	void displayClient();
+	void displaySelectClt(int id, std::string nom);
 
 private:
 	std::vector<Product*> m_products;
