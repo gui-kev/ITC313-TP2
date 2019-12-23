@@ -19,4 +19,4 @@
 	-> Création de la classe Client
 	-> Ajout d'une méthode permettant d'ajouter un produit au panier
 	-> Ajout d'une méthode permettant de vider le panier
-	
+	-> Ajout d'une méthode permettant de modifier la quantité d'un produit ajouté au panier d'achat
