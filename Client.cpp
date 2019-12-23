@@ -42,6 +42,18 @@ void Client::modifyProduct(std::string titleProduct, int newqtt){
 	}
 }
 
+void Client::delproduct(std::string titleP){
+	if (m_panier.empty())
+		std::cout<<"Rien à faire"<<std::endl;
+	else{
+		int a = m_panier.size();
+		for (int i=0; i<a; i++){
+			if (titleP.compare(m_panier.at(i)->getTitle())==1)
+				m_panier.erase(m_panier.begin()+i);
+		}
+	}
+}
+
 std::ostream &operator << (std::ostream &output, Client &c){
 	output << " ID : "<<c.m_uid<<" -  Prenom : "<<c.m_prenom<<" -  Nom : "<< c.m_nom << std::endl;
 	return output; 

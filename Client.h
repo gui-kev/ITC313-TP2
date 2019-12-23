@@ -18,6 +18,7 @@ public:
 	void addProduct(Product p);
 	void clearPanier();
 	void modifyProduct(std::string titleProduct, int newqtt);
+	void delproduct(std::string titleProduct);
 
 	friend std::ostream &operator << (std::ostream &ouput, Client &c);
 
