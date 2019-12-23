@@ -15,8 +15,8 @@ public:
 	int getUid() const;
 	std::string getNom() const;
 	std::string getPrenom() const;
+	void addProduct(Product p);
 	friend std::ostream &operator << (std::ostream &ouput, Client &c);
-	//friend std::istream &operator >> (std::istream &input, Client &c);
 
 private:
 	const int m_uid;

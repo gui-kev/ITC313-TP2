@@ -22,14 +22,11 @@ std::string Client::getPrenom() const {
 	return m_prenom;
 }
 
+void Client::addProduct(Product p) {
+	m_panier.push_back(&p);
+}
+
 std::ostream &operator << (std::ostream &output, Client &c){
 	output << " ID : "<<c.m_uid<<" -  Prenom : "<<c.m_prenom<<" -  Nom : "<< c.m_nom << std::endl;
 	return output; 
 }
-
-/*std::istream &operator >> (std::istream &input, Client &c) {
-	std::cout << "Id : "; input >> c.m_uid;
-	std::cout << "Nom? "; input >> c.m_nom;
-	std::cout << "m_prenom? "; input >> c.m_prenom;
-	return input;
-}*/

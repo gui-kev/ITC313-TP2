@@ -3,8 +3,7 @@
 #include <string>
 #include "Product.h"
 
-Product::Product(std::string title, std::string desc, int qtt, float price)
-{
+Product::Product(std::string title, std::string desc, int qtt, float price){
 	m_title=title;
 	m_desc=desc;
 	m_qtt=qtt;
