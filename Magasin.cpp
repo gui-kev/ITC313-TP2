@@ -93,3 +93,15 @@ void Magasin::delprodClt(Product p, Client* c){
 				m_clients.at(i)->delProduct(p.getTitle());
 	}		
 }
+
+void Magasin::updateProdClt(Product p, Client* c, int new_qtt){
+	if (m_clients.empty())
+		std::cout<<"Rien à faire"<<std::endl;
+	else {
+		int a = m_clients.size();
+		for (int i=0; i<a; i++)
+			if (m_clients.at(i)->getUid()==c->getUid())
+				m_clients.at(i)->modifyProduct(p.getTitle(), new_qtt);	
+	}
+}
+
