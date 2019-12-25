@@ -43,7 +43,7 @@ void Client::modifyProduct(std::string titleProduct, int newqtt){
 	}
 }
 
-void Client::delproduct(std::string titleP){
+void Client::delProduct(std::string titleP){
 	if (m_panier.empty())
 		std::cout<<"Rien à faire"<<std::endl;
 	else{

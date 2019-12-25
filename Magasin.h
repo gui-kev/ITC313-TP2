@@ -19,6 +19,7 @@ public:
 	void displayClient();// affiche tous les clients du magasin
 	void displaySelectClt(int id, std::string nom); //affiche un client à partir de son nom ou de son identifiant
 	void addprodClt(Product p, Client* c); //méthode permettant d'ajouter un produit au panier d'achat d'un client
+	void delprodClt(Product p, Client* c); //méthode permettant de supprimer un produit au panier d'achat d'un client
 
 private:
 	std::vector<Product*> m_products;

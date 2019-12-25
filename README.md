@@ -28,4 +28,4 @@
 	-> Ajout de la méthode permettant d'afficher tous les clients du magasin
 	->Ajout de la méthode permettant d'afficher à l'écran un client sélectionné par son nom ou son identifiant
 	-> Ajout d'une méthode permettant d'ajouter un prooduit au panier d'un client
-	
+	-> Ajout d'une méthode permettant de supprimer un produit au panier d'achat d'un client.

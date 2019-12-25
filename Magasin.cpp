@@ -81,6 +81,15 @@ void Magasin::addprodClt(Product p, Client* c){
 			if(m_clients.at(i)->getUid()==c->getUid())
 				m_clients.at(i)->addProduct(p);
 	}
+}
 
-
+void Magasin::delprodClt(Product p, Client* c){
+	if (m_clients.empty())
+		std::cout<<"Rien à faire"<<std::endl;
+	else {
+		int a = m_clients.size();
+		for (int i=0; i<a; i++)
+			if (m_clients.at(i)->getUid()==c->getUid())
+				m_clients.at(i)->delProduct(p.getTitle());
+	}		
 }
