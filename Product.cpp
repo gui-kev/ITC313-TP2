@@ -30,16 +30,8 @@ void Product::setQtt(int new_qtt){
 	m_qtt=new_qtt;
 }
 
-std::ostream &operator << (std::ostream &output, Product &p)
-{
-	output << p.getTitle() <<" - "<< p.getDesc()<<" - "<< p.getQtt() <<" - "<< p.getPrice()<<"£" << std::endl;
+std::ostream &operator << (std::ostream &output, Product &p){
+	output <<" Title : "<< p.m_title <<" - Description : "<< p.m_desc<<
+			" - Quantity : "<< p.m_qtt <<" - Price : "<< p.m_price<<"£" << std::endl;
 	return output; 
-}
-
-std::istream &operator >> (std::istream &input, Product &p) {
-	std::cout << "Title? "; input >> p.m_title;
-	std::cout << "Description? "; input >> p.m_desc;
-	std::cout << "Quantité? "; input >> p.m_qtt;
-	std::cout << "Prix? "; input >> p.m_price;
-	return input;
 }

@@ -6,20 +6,19 @@
 #include <string>
 #include <vector>
 #include "Product.h"
+//#include "Magasin.h"
 
 class Client
 {
 public:
-	Client(int uid=1, std::vector <Product* > panier={ },
-		   std::string nom="GUIFFO", std::string prenom="Kevin");
+	Client(int uid, std::string nom="GUIFFO", std::string prenom="Kevin",std::vector <Product* > panier={ });
 	int getUid() const;
 	std::string getNom() const;
 	std::string getPrenom() const;
-	void addProduct(Product p); // méthode permettant d'ajouter un produit au panier d'achat du client
-	void clearPanier(); // permet de vider le panier d'achat
-	void modifyProduct(std::string titleProduct, int newqtt);//permet de modifier la quantité du produit d'un panier d'achat
-	void delProduct(std::string titleProduct); //permet de supprimer un produit du panier d'achat
-
+	void add_product(Product* p); 	// permet d'ajouter un produit au panier d'achat du client
+	void clear_panier(); 			// permet de vider le panier d'achat
+	void modify_product(std::string title, int newqtt);	//permet de modifier la quantité du produit d'un panier d'achat
+	void del_product(std::string title); 					//permet de supprimer un produit du panier d'achat
 	friend std::ostream &operator << (std::ostream &ouput, Client &c);//surcharge de l'opérateur "<<" pour afficher toutes les informations du client
 
 private:

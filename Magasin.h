@@ -9,18 +9,20 @@
 class Magasin
 {
 public:
-	Magasin(std::vector<Product*> prod, std::vector<Client*> clt);
-			//std::vector<Order*> cmd);
-	void addProduct(Product p); //méthode permettant d'ajouter un produit au magasin
-	void displayProduct();//affiche tous les produits du magasin
-	void displaySelectP(std::string title);// displaySelectP: permet d'afficher un produit sélectionné
-	void updateProduct(std::string title, int qtt);//met à jour la quantité d'un produit 
-	void addClient(Client c); //ajoute un client au magasin
-	void displayClient();// affiche tous les clients du magasin
-	void displaySelectClt(int id, std::string nom); //affiche un client à partir de son nom ou de son identifiant
-	void addprodClt(Product p, Client* c); //méthode permettant d'ajouter un produit au panier d'achat d'un client
-	void delprodClt(Product p, Client* c); //méthode permettant de supprimer un produit au panier d'achat d'un client
-	void updateProdClt(Product p, Client* c, int new_qtt);//permet de modifier la quantité d'un produit du panier
+	Magasin();
+	void add_product(std::string title, std::string desc, int qtt, float price); 	// permet d'ajouter un produit au magasin
+	void display_product();									//affiche tous les produits du magasin
+	void display_select_product(std::string title);				// display_select_product: permet d'afficher un produit sélectionné
+	void update_product_quantity(std::string title, int qtt);		//met à jour la quantité d'un produit 
+	void add_client(std::string nom, std::string prenom);	//ajoute un client au magasin
+	void display_client();									// affiche tous les clients du magasin
+	void display_select_clt(std::string nom, std::string prenom); 				//affiche un client à partir de son nom ou de son identifiant
+	void display_select_clt(int id);
+	void add_product_clt(std::string title, std::string nom_clt, std::string prenom_clt);	//méthode permettant d'ajouter un produit au panier d'achat d'un client
+	void add_product_clt(std::string title, int id_clt);
+	void del_product_clt(std::string& title, std::string& prenom_clt, std::string& nom_clt); 						//méthode permettant de supprimer un produit au panier d'achat d'un client
+	void qtt_product_clt(std::string& title, std::string& prenom_clt, std::string& nom_clt, int new_qtt);		//permet de modifier la quantité d'un produit du panier
+	Product* return_product(std::string& title); 			//permet de renvoyer pour l'ajouter au panier d'un client
 
 private:
 	std::vector<Product*> m_products;
