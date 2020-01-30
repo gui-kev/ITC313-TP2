@@ -7,7 +7,7 @@ int main()
 {
 	Magasin my_easystore;
 	// Add new clients
-	my_easystore.add_client("Dom", "Ginhac");
+	my_easystore.add_client("Dominique", "Ginhac");
 	my_easystore.add_client("Bill", "Gates");
 	my_easystore.add_client("Richard", "Stallman");
 	my_easystore.add_client("Alan", "Turing");
@@ -29,20 +29,20 @@ int main()
 	my_easystore.add_product_clt("Casque RV PS", "Richard", "Stallman");
 
 	// Add a product with its title and add to a client identified by his uid
-	//my_easystore.add_product_clt("Casque Audio", 4);
+	my_easystore.add_product_clt("Casque Audio", 4);
 
 	// Display all the products
-	//my_easystore.display_product();
+	my_easystore.display_product();
 
 	// Update quantity of a product
-	//my_easystore.update_product_quantity("Switch", 20);
+	my_easystore.update_product_quantity("Switch", 20);
 
 	// Display the updated product
-	//my_easystore.display_select_product("Switch");
+	my_easystore.display_select_product("Switch");
 
 	std::string a = "Kaspersky";
 	my_easystore.display_select_product(a);
-	//my_easystore.display_client();
+	my_easystore.display_client();
 	std::cout<<" Run ok "<<std::endl;
 	return 0;
 }

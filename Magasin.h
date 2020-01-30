@@ -5,11 +5,13 @@
 #include <vector>
 #include "Product.h"
 #include "Client.h"
+#include "Commande.h"
 
 class Magasin
 {
 public:
 	Magasin();
+	~Magasin(); //destructor
 	void add_product(std::string title, std::string desc, int qtt, float price); 	// permet d'ajouter un produit au magasin
 	void display_product();									//affiche tous les produits du magasin
 	void display_select_product(std::string title);				// display_select_product: permet d'afficher un produit sélectionné
@@ -27,7 +29,7 @@ public:
 private:
 	std::vector<Product*> m_products;
 	std::vector<Client*> m_clients;
-	//std::vector<Order*> m_orders;	
+	std::vector<Commande*> m_orders;	
 };
 
 #endif

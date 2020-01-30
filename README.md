@@ -35,3 +35,6 @@ ________________________________________________________________________________
 	* Modification de la forme du fichier README.md
 	* Modification de la structure des classes "Magasin" et "Client" et de leurs fonctions membres
 ___________________________________________________________________________________________________________________________
+### Question 6 : Création de la classe Commande
+	* Classe Commande avec ses variables membres
+	* surcharge de l'opérateur << pour afficher toutes les informations d'une commande

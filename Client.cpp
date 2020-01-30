@@ -1,7 +1,6 @@
 
 #include<iostream>
 #include<string>
-#include<array>
 #include "Client.h"
 
 Client::Client(int uid,std::string nom, std::string prenom,std::vector<Product* > panier) : m_uid(uid) {
@@ -25,8 +24,6 @@ std::string Client::getPrenom() const {
 void Client::add_product(Product* p) {
 	if (p != nullptr)
 		m_panier.push_back(p);
-	else 
-		std::cout<<" No product to add. "<<std::endl;
 }
 
 void Client::clear_panier(){
