@@ -45,6 +45,13 @@ void Client::modify_product(std::string titleProduct, int newqtt){
 		}
 	}
 }
+void Client::add_product(std::string titleProduct) {
+	int a = m_panier.size();
+		for (int i=0; i<a; i++){
+			if (titleProduct == m_panier.at(i)->getTitle())
+				m_panier.push_back(m_panier.at(i));
+		}
+}
 
 void Client::del_product(std::string title){
 	if (m_panier.empty())

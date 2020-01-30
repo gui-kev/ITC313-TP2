@@ -251,3 +251,15 @@ void Magasin::display_orders_clt(int id_clt){
 			std::cout <<  *clt << std::endl;
 	}
 }
+std::vector<Product*> Magasin::getm_products() const
+{
+	return m_products;
+}
+std::vector<Client*> Magasin::getm_clients() const
+{
+	return m_clients;
+}
+std::vector<Commande*> Magasin::getm_orders() const 
+{
+	return m_orders;
+}

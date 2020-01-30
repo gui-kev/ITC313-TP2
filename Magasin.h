@@ -29,6 +29,10 @@ public:
 	void statut_commande(int id_com); // permet de modifier le statut d'une commande (livrée ou pas)
 	void display_orders();
 	void display_orders_clt(int id_clt); //permet d'afficher toutes les commandes d'un client donné
+	std::vector<Product*> getm_products() const ;
+	std::vector<Client*> getm_clients() const;
+	std::vector<Commande*> getm_orders() const ;	
+
 
 private:
 	std::vector<Product*> m_products;
