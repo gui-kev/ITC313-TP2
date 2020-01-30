@@ -15,7 +15,7 @@ public:
 	int getUid() const;
 	std::string getNom() const;
 	std::string getPrenom() const;
-	Product* getPanier() const;
+	std::vector<Product*> getPanier() const;
 	void add_product(Product* p); 	// permet d'ajouter un produit au panier d'achat du client
 	void clear_panier(); 			// permet de vider le panier d'achat
 	void modify_product(std::string title, int newqtt);	//permet de modifier la quantité du produit d'un panier d'achat

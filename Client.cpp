@@ -21,8 +21,8 @@ std::string Client::getPrenom() const {
 	return m_prenom;
 }
 
-Product* Client::getPanier() const{
-	return m_panier.front(); //retourne l'adresse du premier élément du panier pour la commande
+std::vector<Product*> Client::getPanier() const{
+	return m_panier;//.front(); //retourne l'adresse du premier élément du panier pour la commande
 }
 
 void Client::add_product(Product* p) {

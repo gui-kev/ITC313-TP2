@@ -32,14 +32,15 @@
 	* Ajout d'une méthode permettant de modifier la quantité d'un produit du panier d'achat d'un client.
 ___________________________________________________________________________________________________________________________
 ## Après lecture du TD 2 - [https://github.com/gui-kev/esirem-itc313/tree/master/TD/TD2](https://github.com/gui-kev/esirem-itc313/tree/master/TD/TD2) de Pr. Dominique GINHAC
-	* Modification de la forme du fichier README.md
-	* Modification de la structure des classes "Magasin" et "Client" et de leurs fonctions membres
+	* Modification de la forme du fichier README.md.
+	* Modification de la structure des classes "Magasin" et "Client" et de leurs fonctions membres.
 ___________________________________________________________________________________________________________________________
 ### Question 6 : Création de la classe Commande
-	* Classe Commande avec ses variables membres
-	* surcharge de l'opérateur << pour afficher toutes les informations d'une commande
+	* Classe Commande avec ses variables membres.
+	* surcharge de l'opérateur << pour afficher toutes les informations d'une commande.
 
 ### Question 7 : Ajout de fonctionnalités à la classe Magasin
-	* Ajout d'une méthode permettant de valider une commande
-	* Ajout d'une méthode permettant de mettre à jour le statut d'une commande
-	* Ajout d'une méthode permettant d'afficher toutes les commandes passées
+	* Ajout d'une méthode permettant de valider une commande.
+	* Ajout d'une méthode permettant de mettre à jour le statut d'une commande.
+	* Ajout d'une méthode permettant d'afficher toutes les commandes passées.
+	* Ajout d'une méthode permettant d'afficher toutes les commandes d'un client donné.

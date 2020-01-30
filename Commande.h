@@ -9,7 +9,8 @@ class Commande
 public:
 	Commande(int uid);   // Client* clt);
 	int getUid() const;
-	void setProduct(Product* p);
+	Client* getClient() const;
+	void setProduct(std::vector<Product*>);
 	void setClient(Client* c);
 	void setStatus(bool s);
 	friend std::ostream& operator << (std::ostream &output, Commande& order); // surcharge de l'opérateur << pour afficher toutes les informations d'une commande

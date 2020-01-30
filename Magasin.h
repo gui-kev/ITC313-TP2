@@ -28,6 +28,7 @@ public:
 	void valide_commande(int id); 		//permet de valider une commande
 	void statut_commande(int id_com); // permet de modifier le statut d'une commande (livrée ou pas)
 	void display_orders();
+	void display_orders_clt(int id_clt); //permet d'afficher toutes les commandes d'un client donné
 
 private:
 	std::vector<Product*> m_products;

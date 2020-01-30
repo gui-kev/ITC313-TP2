@@ -22,7 +22,8 @@ Magasin::~Magasin(){
 		delete m_orders.at(i);	
 		m_orders.at(i) = nullptr;
 	}
-	std::cout << std::endl << "	Cool 😜 😜 😜 cool " << std::endl;
+	std::cout << std::endl << "	😈😈Destructor😈😈" << std::endl;
+	std::cout << "	Cool 😜 😜 😜 cool " << std::endl;
 	std::cout << "🤔🤔🤔 je te laisse la QUESTION 8" << std::endl;
 }
 
@@ -238,5 +239,15 @@ void Magasin::display_orders(){
 	int b = m_orders.size();
 	if(b > 0)
 		for (int i=0; i < b; i++)
-			std::cout << m_orders.at(i);
+			std::cout << *m_orders.at(i);
+}
+
+// affichage des commandes d'un client donné
+void Magasin::display_orders_clt(int id_clt){
+	int b = m_orders.size();
+	for (int i=0; i < b ; i++){
+		Client* clt = m_orders.at(i)->getClient();
+		if ( clt->getUid() == id_clt)
+			std::cout <<  *clt << std::endl;
+	}
 }
