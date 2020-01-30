@@ -38,3 +38,7 @@ ________________________________________________________________________________
 ### Question 6 : Création de la classe Commande
 	* Classe Commande avec ses variables membres
 	* surcharge de l'opérateur << pour afficher toutes les informations d'une commande
+
+### Question 7 : Ajout de fonctionnalités à la classe Magasin
+	* Ajout d'une méthode permettant de valider une commande
+	

@@ -9,6 +9,7 @@ Magasin::Magasin(){}
 Magasin::~Magasin(){
 	int a = m_clients.size();
 	int b = m_products.size();
+	int c = m_orders.size();
 	for (int i = 0; i < a; i++){
 		delete m_clients.at(i);
 		m_clients.at(i) = nullptr;
@@ -17,7 +18,10 @@ Magasin::~Magasin(){
 		delete m_products.at(i);	
 		m_products.at(i) = nullptr;
 	}
-
+	for (int i = 0; i < c; i++){
+		delete m_orders.at(i);	
+		m_orders.at(i) = nullptr;
+	}
 	std::cout << std::endl << "	Cool 😜 😜 😜 cool " << std::endl;
 	std::cout << "🤔🤔🤔 je te laisse la QUESTION 8" << std::endl;
 }
@@ -192,3 +196,26 @@ void Magasin::qtt_product_clt(std::string& title, std::string& prenom_clt, std::
 				m_clients.at(i)->modify_product(title, new_qtt);	
 	}
 }
+
+void Magasin::valide_commande(int id_clt){
+	static int count2 = 0;
+	int id = count2++;
+	int a = 0;
+	std::cout << "Voulez-vous valider la Commande (1 pour oui / 0 pour non) : ";
+	std::cin >> a;
+	if (a == 1){
+		Commande* order = new Commande(id); // clt);
+		int b = m_clients.size();
+		for (int i=0; i < b ; i++){
+			if (m_clients.at(i)->getUid() == id_clt){
+				order->setProduct(m_clients.at(i)->getPanier());
+				order->setClient(m_clients.at(i));
+				order->setStatus(false);
+				m_clients.at(i)->clear_panier();
+			}
+		}
+		m_orders.push_back(order);
+		std::cout << "Commande éffectuée. "<< std::endl;
+	}
+}
+
