@@ -197,6 +197,7 @@ void Magasin::qtt_product_clt(std::string& title, std::string& prenom_clt, std::
 	}
 }
 
+// validation d'une commande
 void Magasin::valide_commande(int id_clt){
 	static int count2 = 0;
 	int id = count2++;
@@ -208,10 +209,10 @@ void Magasin::valide_commande(int id_clt){
 		int b = m_clients.size();
 		for (int i=0; i < b ; i++){
 			if (m_clients.at(i)->getUid() == id_clt){
-				order->setProduct(m_clients.at(i)->getPanier());
+				order->setProduct(m_clients.at(i)->getPanier()); //copie du contenu du panier dans les produits de la commande 
 				order->setClient(m_clients.at(i));
 				order->setStatus(false);
-				m_clients.at(i)->clear_panier();
+				m_clients.at(i)->clear_panier(); // Vidange du panier du client
 			}
 		}
 		m_orders.push_back(order);
@@ -219,3 +220,15 @@ void Magasin::valide_commande(int id_clt){
 	}
 }
 
+// mise à jour le statut d'une commande
+void Magasin::statut_commande(int id_com){
+	int a = 0;
+	int b = m_orders.size();
+	std::cout << " La commande a été livrée (1 pour oui / 0 pour non) :  ";
+	std::cin >> a;
+	if (a == 1)
+		for (int i=0; i < b; i++){
+			if(m_orders.at(i)->getUid() == id_com)
+				m_orders.at(i)->setStatus(true);
+		}
+}

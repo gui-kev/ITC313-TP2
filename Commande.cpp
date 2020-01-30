@@ -5,6 +5,10 @@
 // 
 Commande::Commande(int uid): m_uid(uid) {}
 
+int Commande::getUid() const {
+	return m_uid;
+}
+
 void Commande::setClient(Client* c){
 	m_client = c;
 }

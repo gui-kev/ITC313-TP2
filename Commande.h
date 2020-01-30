@@ -7,7 +7,8 @@
 class Commande 
 {
 public:
-	Commande(int uid);// Client* clt);
+	Commande(int uid);   // Client* clt);
+	int getUid() const;
 	void setProduct(Product* p);
 	void setClient(Client* c);
 	void setStatus(bool s);

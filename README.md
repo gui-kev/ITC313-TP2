@@ -41,4 +41,4 @@ ________________________________________________________________________________
 
 ### Question 7 : Ajout de fonctionnalités à la classe Magasin
 	* Ajout d'une méthode permettant de valider une commande
-	
+	* Ajout une méthode permettant de mettre à jour le statut d'une commande

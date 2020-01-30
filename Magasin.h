@@ -26,6 +26,7 @@ public:
 	void qtt_product_clt(std::string& title, std::string& prenom_clt, std::string& nom_clt, int new_qtt);		//permet de modifier la quantité d'un produit du panier
 	Product* return_product(std::string& title); 			//permet de renvoyer pour l'ajouter au panier d'un client
 	void valide_commande(int id); 		//permet de valider une commande
+	void statut_commande(int id_com); // permet de modifier le statut d'une commande (livrée ou pas)
 
 private:
 	std::vector<Product*> m_products;
