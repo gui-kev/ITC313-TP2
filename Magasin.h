@@ -27,6 +27,7 @@ public:
 	Product* return_product(std::string& title); 			//permet de renvoyer pour l'ajouter au panier d'un client
 	void valide_commande(int id); 		//permet de valider une commande
 	void statut_commande(int id_com); // permet de modifier le statut d'une commande (livrée ou pas)
+	void display_orders();
 
 private:
 	std::vector<Product*> m_products;

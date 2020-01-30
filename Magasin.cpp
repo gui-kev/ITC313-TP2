@@ -232,3 +232,11 @@ void Magasin::statut_commande(int id_com){
 				m_orders.at(i)->setStatus(true);
 		}
 }
+
+//Affichage à l'écran de toutes les commandes passées
+void Magasin::display_orders(){
+	int b = m_orders.size();
+	if(b > 0)
+		for (int i=0; i < b; i++)
+			std::cout << m_orders.at(i);
+}
