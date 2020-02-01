@@ -1,5 +1,8 @@
 # ITC313-TP2
-# Participants : GUIFFO KUICHEU Kevin, BISSE SOWE Emmanuel Arthur
+# 1- Participants : GUIFFO KUICHEU Kevin, BISSE SOWE Emmanuel Arthur
+
+# 2- Resume :
+## le TP a été réalisé dans sa totalité de la Question 1 à la Question 8 
 
 ### Question 1 : Création de la classe Magasin
 	* Création de la classe Magasin avec  ses trois variables membres et son constructeur.
