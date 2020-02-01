@@ -14,7 +14,7 @@ int main(){
 	my_easystore.add_client("Steve", "Jobs");
 
 	// Add products to the store with Title, Description, Price and Quantity
-	my_easystore.add_product("PS4","Console de jeu Sony", 10,249.99);
+	my_easystore.add_product("Play Station 4","Console de jeu Sony", 10,249.99);
 	my_easystore.add_product("Switch", "Console de jeu Nintendo", 30, 299.99);
 	my_easystore.add_product("Xbox one", "Console de jeu Microsoft", 15, 179.99);
 
@@ -22,11 +22,12 @@ int main(){
 	//my_easystore.writeProduct("product");
 
 	std::string rep ="";
+	Client *c = nullptr;
 	do{
 		system("clear");
 		char choix0 = '0';
-		std::cout <<"------------👋👋👋 BIENVENU SUR CETTE MERVEILLEUSE APPLI DE GESTION DE MAGASIN ( EASYSTORE )👋👋👋----------- "<< std::endl;
-		std::cout <<"Vous etes gestionnaire (1) ou client (2) ?  "; // << std::endl;
+		std::cout <<"------------💫💫💫 BIENVENU SUR CETTE MERVEILLEUSE APPLI DE GESTION DE MAGASIN ( EASYSTORE )💫💫💫----------- "<< std::endl;
+		std::cout <<"Vous etes gestionnaire (tapez 1) ou client (tapez 2) ?  "; // << std::endl;
 		do {
 			std::cout <<" Choix : ";
 			std::cin >> choix0;
@@ -53,8 +54,9 @@ int main(){
 					int choix1 = 0;
 					std::cout << " ___________________________________________________________ " << std::endl
 							  << "|Souhaitez vous :                                           |" << std::endl
-							  << "| 1. Ajout d'un produit au magasin                          |" << std::endl
-							  << "| 2. modifier la quantité d'un produit                      |" << std::endl
+							  << "| 1. Afficher la liste des produits du magasin               |" << std::endl
+							  << "| 2. Ajout d'un produit au magasin                          |" << std::endl
+							  << "| 3. modifier la quantité d'un produit                      |" << std::endl
 							  << "| 0. Quitter                                                |" << std::endl 
 							  << "|___________________________________________________________|" << std::endl
 							  << "	Choix : ";
@@ -65,14 +67,20 @@ int main(){
 					int qtt = 0; int price =0;
 					switch(choix1){	
 						case 0 : break;
+
+						case 1 : 
+							my_easystore.display_product();
+							break;
 								
-						case 1 :
+						case 2 :
 							do {
 								std::cout<<"veillez entrer les informations du produit : "<<std::endl;
 								std::cout <<"Title : ";
-								std::cin>>title;
+								std::cin.ignore();
+								std::getline(std::cin,title);
 								std::cout<<"Description : ";
-								std::cin>>desc;
+								std::cin.ignore();
+								std::getline(std::cin,desc);
 								std::cout<<"Quantité : ";
 								std::cin>>qtt;
 								std::cout<<"Price : ";
@@ -82,10 +90,12 @@ int main(){
 								std::cin >> rep1;
 							} while(rep1 == "O" || rep1 == "o" || rep1 == "OUI" || rep1 == "oui");
 							break;
-						case 2 :
+
+						case 3 :
 							do {
 								std::cout<<"Titre du produit : ";
-								std::cin>>title;
+								std::cin.ignore();
+								std::getline(std::cin,title);
 								std::cout<<"Quantité : ";
 								std::cin>>qtt;
 								my_easystore.update_product_quantity(title,qtt);
@@ -101,12 +111,12 @@ int main(){
 					int id =0;
 					std::string nom, prenom;
 					std::string rep2 = "";
-					std::cout << "	 ___________________________________________________________ " << std::endl
-							  << "	| 1. Ajout d'un client au magasin                           |" << std::endl
-							  << "	| 2. Afficher la liste des client du magasin                |" << std::endl
-							  << "	| 3. Afficher les informations sur d'un client              |" << std::endl
-							  << "	| 0. Quitter                                                |" << std::endl 
-							  << "	|___________________________________________________________|" << std::endl
+					std::cout << " ___________________________________________________________ " << std::endl
+							  << "| 1. Ajout d'un client au magasin                           |" << std::endl
+							  << "| 2. Afficher la liste des clients du magasin               |" << std::endl
+							  << "| 3. Afficher les informations sur d'un client              |" << std::endl
+							  << "| 0. Quitter                                                |" << std::endl 
+							  << "|___________________________________________________________|" << std::endl
 							  << "	Choix : ";
 					std::cin >> choix2;
 					std::cout << std::endl;
@@ -116,11 +126,14 @@ int main(){
 						case 1 :
 							do{
 								std::cout<<" Nom du client : ";
-								std::cin>>nom;
+								std::cin.ignore();
+								std::getline(std::cin,nom);
 								std::cout<<" Prenom du client : ";
-								std::cin>>prenom;
+								std::cin.ignore();
+								std::getline(std::cin,prenom);
 								my_easystore.add_client(nom,prenom);
-								std::cout << "Voulez-vous ajouter un autre client ? (o/n) : "; 
+								std::cout << "Voulez-vous ajouter un autre client ? (o/n) : ";
+								std::cin >> rep2; 
 							} while(rep2 == "O" || rep2 == "o" || rep2 == "OUI" || rep2 == "oui");
 							break;
 
@@ -138,9 +151,11 @@ int main(){
 							}
 							else{
 								std::cout<<" Nom du client : ";
-								std::cin>>nom;
+								std::cin.ignore();
+								std::getline(std::cin,nom);
 								std::cout<<" Prenom du client : ";
-								std::cin>>prenom;
+								std::cin.ignore();
+								std::getline(std::cin,prenom);
 								my_easystore.display_select_clt(nom,prenom);
 							}
 							break;
@@ -150,11 +165,11 @@ int main(){
 				if(choix == 3){ //gestion des commandes
 					int choix3 = 0;
 					int id_statut = 0;
-					std::cout << "	 ___________________________________________________________ " << std::endl
-							  << "	| 1. Modifier le statut  d'une commande                     |" << std::endl
-							  << "	| 2. Lister les commandes                                   |" << std::endl
-							  << "	| 0. Quitter                                                |" << std::endl 
-							  << "	|___________________________________________________________|" << std::endl
+					std::cout << " ___________________________________________________________ " << std::endl
+							  << "| 1. Modifier le statut  d'une commande                     |" << std::endl
+							  << "| 2. Lister les commandes                                   |" << std::endl
+							  << "| 0. Quitter                                                |" << std::endl 
+							  << "|___________________________________________________________|" << std::endl
 							  << "	Choix : ";
 					std::cin >> choix3;
 					std::cout << std::endl;
@@ -175,64 +190,100 @@ int main(){
 			}
 		}
 
-		if (choix0 == '2'){
+		if (choix0 == '2') {
 			std::string nom, prenom, titleProduct;
 			int choix4 = 0;
 			int newqtt = 0;
-			std::cout<<"Entrez votre nom : ";
-			std::cin>> nom;
-			std::cout<<"Entrez le prenom : ";
-			std::cin>> prenom;
-			Client *c = my_easystore.return_client(nom, prenom);
-			if (c == nullptr)
+			std::cout<<" Nom du client : ";
+			std::cin.ignore();
+			std::getline(std::cin,nom);
+			std::cout<<" Prenom du client : ";
+			std::cin.ignore();
+			std::getline(std::cin,prenom);
+			//Client *c = my_easystore.return_client(nom, prenom);
+			if (my_easystore.return_client(nom, prenom) == nullptr){
 				my_easystore.add_client(nom,prenom);
+				c = my_easystore.return_client(nom, prenom);
+			}
+			else {
+				c = my_easystore.return_client(nom, prenom);
+			}
+			std::string r ="";
 			std::cout<<"voici la liste de nos produits"<<std::endl;
 			my_easystore.display_product();
-			std::cout << " ___________________________________________________________ " << std::endl
-		        	  << "|Souhaitez vous :                                           |" << std::endl
-		        	  << "| 1. Ajouter un produit a mon panier                        |" << std::endl
-					  << "| 2. supprimer un produit du panier                         |" << std::endl
-					  << "| 3. Modifier la quantité d'un produit                      |" << std::endl
-					  << "| 4. Valider ma commande                                    |" << std::endl
-					  << "| 0. Quitter                                                |" << std::endl 
-					  << "|___________________________________________________________|" << std::endl
-					  << "Choix : ";
-			std::cin >> choix4;
-			std::cout << std::endl;
-			switch(choix4){	
-				case 0 : break;
-	 
-				case 1 :
-					std::cout << "Entrez le titre du produit desiré : ";
-					std::cin >> titleProduct;
-					my_easystore.add_product_clt(titleProduct, c->getUid());
-					break;
+			do {
+				std::cout << " ___________________________________________________________ " << std::endl
+			        	  << "|Souhaitez vous :                                           |" << std::endl
+			        	  << "| 1. Ajouter un produit a mon panier                        |" << std::endl
+						  << "| 2. supprimer un produit du panier                         |" << std::endl
+						  << "| 3. Modifier la quantité d'un produit                      |" << std::endl
+						  << "| 0. Quitter                                                |" << std::endl 
+						  << "|___________________________________________________________|" << std::endl
+						  << "Choix : ";
+				std::cin >> choix4;
+				std::cout << std::endl;
+				switch(choix4){	
+					case 0 : break;
+		 
+					case 1 :
+						std::cout << "Entrez le titre du produit desiré : ";
+						std::cin.ignore();
+						std::getline(std::cin,titleProduct);
+						my_easystore.add_product_clt(titleProduct, nom, prenom);
+						std::cout << "Voulez-vous valider la Commande (o/n) ? : ";
+						std::cin >> r;
+						if (r == "O" || r == "o" || r == "OUI" || r == "oui"){
+							my_easystore.valide_commande(c->getUid());
+							r = "n";
+						}
+						break;
 
-				case 2 : 
-					std::cout<<"Entrez le titre du produit que vous desirez supprimer ";
-					std::cin>>titleProduct;
-					my_easystore.del_product_clt(titleProduct, nom, prenom);
-					break;
+					case 2 : 
+						std::cout<<"Entrez le titre du produit que vous desirez supprimer ";
+						std::cin.ignore();
+						std::getline(std::cin,titleProduct);
+						my_easystore.del_product_clt(titleProduct, nom, prenom);
+						std::cout << "Voulez-vous valider la Commande (o/n) ? : ";
+						std::cin >> r;
+						if (r == "O" || r == "o" || r == "OUI" || r == "oui"){
+							my_easystore.valide_commande(c->getUid());
+							r = "n";
+						}
+						break;
 
-				case 3 :
-					std::cout<<"Entrez le titre du produit que vous desirez modifier : ";
-					std::cin>>titleProduct;
-					std::cout<<"Entrez la nouvelle quantité : ";
-					std::cin>>newqtt;
-					my_easystore.qtt_product_clt(titleProduct, nom, prenom, newqtt);
-					break;
-
-				case 4 :
-					my_easystore.valide_commande(c->getUid());
-					break;
-			}
+					case 3 :
+						std::cout<<"Entrez le titre du produit que vous desirez modifier : ";
+						std::cin.ignore();
+						std::getline(std::cin,titleProduct);
+						std::cout<<"Entrez la nouvelle quantité : ";
+						std::cin>>newqtt;
+						my_easystore.qtt_product_clt(titleProduct, nom, prenom, newqtt);
+						std::cout << "Voulez-vous valider la Commande (o/n) ? : ";
+						std::cin >> r;
+						if (r == "O" || r == "o" || r == "OUI" || r == "oui"){
+							my_easystore.valide_commande(c->getUid());
+							r = "n";
+						}
+						break;
+				}
+				if(r == "n"){
+					std::cout << "Voulez-vous apporter des modifications à votre panier (o/n) ? : ";
+					std::cin >> r;
+				}
+			} while (r == "O" || r == "o" || r == "OUI" || r == "oui");
 		}
 
 		std::cout << "Voulez-vous enregistrer les modifications ? (o/n) : ";
 		std::cin >> rep;
 	} while(rep == "N" || rep == "n" || rep == "NON" || rep == "non");
 
-	//my_easystore.readProduct("product");
+	my_easystore.writeProduct("product");
+	//	my_easystore.readProduct("product");
+	my_easystore.writeClient("client");
+	//	my_easystore.readClient("client");
+	my_easystore.writeOrder("order");
+	///	my_easystore.readOrder("order");
+	
 	std::cout<<" Run ok "<<std::endl;
 
 	return 0;

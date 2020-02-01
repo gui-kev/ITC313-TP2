@@ -22,15 +22,14 @@ Magasin::~Magasin(){
 		delete m_orders.at(i);	
 		m_orders.at(i) = nullptr;
 	}
-	std::cout << std::endl << "	😈😈Destructor😈😈" << std::endl;
-	std::cout << "	Cool 😜 😜 😜 cool " << std::endl;
+	std::cout << std::endl << "	💫💫Destructor💫💫" << std::endl;
+	std::cout << "💫My_easystore vous remercie de votre visite💫 " << std::endl;
 }
 
 // Ajouter un nouveau produit au magasin
 void Magasin::add_product(std::string title, std::string desc, int qtt, float price){
 	Product* p = new Product(title, desc, qtt, price);
 	m_products.push_back(p);
-	//std::cout<<" Product add. "<<std::endl;
 }
 
 
@@ -213,10 +212,6 @@ void Magasin::qtt_product_clt(std::string& title, std::string& nom_clt, std::str
 void Magasin::valide_commande(int id_clt){
 	static int count2 = 0;
 	int id = count2++;
-	int a = 0;
-	std::cout << "Voulez-vous valider la Commande (1 pour oui / 0 pour non) : ";
-	std::cin >> a;
-	if (a == 1){
 		Commande* order = new Commande(id); // clt);
 		int b = m_clients.size();
 		for (int i=0; i < b ; i++){
@@ -229,7 +224,6 @@ void Magasin::valide_commande(int id_clt){
 		}
 		m_orders.push_back(order);
 		std::cout << "Commande éffectuée. "<< std::endl;
-	}
 }
 
 // mise à jour le statut d'une commande
@@ -275,3 +269,86 @@ Client* Magasin::return_client(std::string nom, std::string prenom){
 	return c;
 }
 
+void Magasin::readProduct(std::string filename){ 
+	std::ifstream flux(filename.c_str(), std::ios::app);  //On essaye d'ouvrir le fichier
+	if(flux){
+		std::cout<<" Lecture des produits dans le fichier 'product'."<<std::endl;
+		std::string s;
+		int a = m_products.size();
+		for (int i =0; i < a; i++){
+			getline(flux, s);
+			std::cout << s << std::endl;
+		}
+	}
+	else
+		std::cout<< "ERREUR: Impossible d'ouvrir le fichier." <<std::endl;
+}
+
+void Magasin::writeProduct(std::string filename){
+	std::ofstream flux(filename.c_str()); //On essaye d'ouvrir le fichier
+	if(flux) {
+		std::cout<<" Enregistrement des produits dans le fichier 'product'."<<std::endl;
+		int a = m_products.size();
+		for (int i=0; i < a; i++){
+			flux << *m_products.at(i) << std::endl;
+		}
+	}
+	else 
+		std::cout<< "ERREUR: Impossible d'ouvrir le fichier."  <<std::endl;
+}
+
+void Magasin::readClient(std::string filename){ 
+	std::ifstream flux(filename.c_str(), std::ios::app);  //On essaye d'ouvrir le fichier
+	if(flux){
+		std::cout<<" Lecture des client dans le fichier 'client'."<<std::endl;
+		std::string s;
+		int a = m_clients.size();
+		for (int i =0; i < a; i++){
+			getline(flux, s);
+			std::cout << s << std::endl;
+		}
+	}
+	else
+		std::cout<< "ERREUR: Impossible d'ouvrir le fichier." <<std::endl;
+}
+
+void Magasin::writeClient(std::string filename){
+	std::ofstream flux(filename.c_str()); //On essaye d'ouvrir le fichier
+	if(flux) {
+		std::cout<<" Enregistrement des clients dans le fichier 'client'."<<std::endl;
+		int a = m_clients.size();
+		for (int i=0; i < a; i++){
+			flux << *m_clients.at(i) << std::endl;
+		}
+	}
+	else 
+		std::cout<< "ERREUR: Impossible d'ouvrir le fichier." <<std::endl;
+}
+
+void Magasin::readOrder(std::string filename){ 
+	std::ifstream flux(filename.c_str(), std::ios::app);  //On essaye d'ouvrir le fichier
+	if(flux){
+		std::cout<<" Lecture des commandes dans le fichier 'order'."<<std::endl;
+		std::string s;
+		int a = m_orders.size();
+		for (int i =0; i < a; i++){
+			getline(flux, s);
+			std::cout << s << std::endl;
+		}
+	}
+	else
+		std::cout<< "ERREUR: Impossible d'ouvrir le fichier." <<std::endl;
+}
+
+void Magasin::writeOrder(std::string filename){
+	std::ofstream flux(filename.c_str()); //On essaye d'ouvrir le fichier
+	if(flux) {
+		std::cout<<" Enregistrement des commandes dans le fichier 'order'."<<std::endl;
+		int a = m_orders.size();
+		for (int i=0; i < a; i++){
+			flux << *m_orders.at(i) << std::endl;
+		}
+	}
+	else 
+		std::cout<< "ERREUR: Impossible d'ouvrir le fichier." <<std::endl;
+}

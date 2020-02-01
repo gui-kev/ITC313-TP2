@@ -31,6 +31,13 @@ public:
 	void display_orders();
 	void display_orders_clt(int id_clt); //permet d'afficher toutes les commandes d'un client donné
 	Client* return_client(std::string nom, std::string prenom);
+	void readProduct(std::string filename); //enregistrer les produits, clients et commandes dans des fichiers
+	void writeProduct(std::string filename);
+	void readClient(std::string filename);
+	void writeClient(std::string filename);
+	void readOrder(std::string filename);
+	void writeOrder(std::string filename);
+
 
 //	int getIdClt(Client* c) const;
 
