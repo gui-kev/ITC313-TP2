@@ -1,6 +1,6 @@
 
 #include<iostream>
-#include<string>
+#include<cstring>
 #include "Client.h"
 
 Client::Client(int uid,std::string nom, std::string prenom,std::vector<Product* > panier) : m_uid(uid) {
@@ -40,18 +40,18 @@ void Client::modify_product(std::string titleProduct, int newqtt){
 	else{
 		int a = m_panier.size();
 		for (int i=0; i<a; i++){
-			if (titleProduct.compare(m_panier.at(i)->getTitle())==1)
+			if (titleProduct.compare(m_panier.at(i)->getTitle()) == 1)
 				m_panier.at(i)->setQtt(newqtt);
 		}
 	}
 }
-void Client::add_product(std::string titleProduct) {
+/*void Client::add_product(std::string titleProduct) {
 	int a = m_panier.size();
 		for (int i=0; i<a; i++){
 			if (titleProduct == m_panier.at(i)->getTitle())
 				m_panier.push_back(m_panier.at(i));
 		}
-}
+}*/
 
 void Client::del_product(std::string title){
 	if (m_panier.empty())
@@ -59,17 +59,38 @@ void Client::del_product(std::string title){
 	else{
 		int a = m_panier.size();
 		for (int i=0; i<a; i++){
-			if (title.compare(m_panier.at(i)->getTitle())==1)
-				m_panier.at(i) = nullptr;			
+			if (title.compare(m_panier.at(i)->getTitle()) == 1)
+				m_panier.erase(m_panier.begin()+i);		
 		}
 	}
 }
 
-std::ostream &operator << (std::ostream &output, Client &c){
-	output << " ID : "<<c.m_uid<<" -  Prenom : "<< c.m_nom <<" -  Nom : "<< c.m_prenom <<" - Panier : ";
+std::ostream &operator << (std::ostream &output, Client& c){
+	int b = std::strlen(c.m_nom.c_str());
+	int e = std::strlen(c.m_prenom.c_str());
+	if (b < 15)
+		c.m_nom.resize(15,' ');
+	if (e < 15)
+		c.m_prenom.resize(15,' ');
+
+	output << "| "<< c.m_uid <<"     "<< c.m_prenom << c.m_nom << std::endl <<"|		Panier : ";
 	int a = c.m_panier.size(); 
 	if (a>0)	
 		for (int i=0; i<a; i++)
-			std::cout<<*c.m_panier.at(i)<<std::endl;
+			output <<*c.m_panier.at(i);
 	return output;
 }
+
+/*std::ostream &operator << (std::ostream &output, Client&  c){
+	output << " ID : "<<c.m_uid<<" -  Prenom : "<< c.m_nom <<" -  Nom : "<< c.m_prenom <<" - Panier : ";
+	int a = std::strlen(c.m_nom.c_str());
+	int b = std::strlen(c.m_prenom.c_str());
+	if (a < 15)
+		c.m_nom.resize(15,' ');
+	if (b < 15)
+		c.m_prenom.resize(15,' ');
+
+	output << "| " << p.m_title << p.m_desc
+		   << "(" << s  << p.m_price << " € |";
+	return output; 
+}*/

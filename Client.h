@@ -20,7 +20,7 @@ public:
 	void clear_panier(); 			// permet de vider le panier d'achat
 	void modify_product(std::string title, int newqtt);	//permet de modifier la quantité du produit d'un panier d'achat
 	void del_product(std::string title); 					//permet de supprimer un produit du panier d'achat
-	void add_product(std::string titleProduct);
+	//void add_product(std::string titleProduct);
 	friend std::ostream &operator << (std::ostream &ouput, Client &c);//surcharge de l'opérateur "<<" pour afficher toutes les informations du client
 
 private:

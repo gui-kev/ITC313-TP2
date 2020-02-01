@@ -7,8 +7,8 @@
 class Product
 {
 public:
-	Product();
-	Product(std::string title="PS4", std::string desc="Console de jeu",int qtt=1, float price=249.99); //desc= description produit
+	//Product();
+	Product(std::string title="PS4", std::string desc="Console de jeu sony",int qtt=1, float price=249.99); //desc= description produit
 	std::string getTitle() const;
 	std::string getDesc() const;
 	int getQtt() const;

@@ -44,3 +44,6 @@ ________________________________________________________________________________
 	* Ajout d'une méthode permettant de mettre à jour le statut d'une commande.
 	* Ajout d'une méthode permettant d'afficher toutes les commandes passées.
 	* Ajout d'une méthode permettant d'afficher toutes les commandes d'un client donné.
+
+### Question 8 : Questions subsidiaires
+	*  Menu permettant de sélectionner l'action à faire 

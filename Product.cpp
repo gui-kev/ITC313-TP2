@@ -1,9 +1,9 @@
 
 #include <iostream>
-#include <string>
+#include <cstring>
 #include "Product.h"
 
-Product::Product(){} // Crée un produit vide
+//Product::Product(){} // Crée un produit vide
 
 Product::Product(std::string title, std::string desc, int qtt, float price){
 	m_title=title;
@@ -34,8 +34,20 @@ void Product::setQtt(int new_qtt){
 }
 
 //surcharge de l'opérateur << pour afficher un pproduit
-std::ostream &operator << (std::ostream &output, Product &p){
-	output <<" Title : "<< p.m_title <<" - Description : "<< p.m_desc<<
-			" - Quantity : "<< p.m_qtt <<" - Price : "<< p.m_price<<"£" << std::endl;
+std::ostream &operator << (std::ostream &output, Product& p){
+	int a = std::strlen(p.m_title.c_str());
+	int b = std::strlen(p.m_desc.c_str());
+	std::string s = std::to_string(p.m_qtt);
+	int c = std::strlen(s.c_str());
+	if (a < 20)
+		p.m_title.resize(20,' ');
+	if (b < 40)
+		p.m_desc.resize(40,' ');
+	if (c < 12){
+		s.resize(c+1,')');
+		s.resize(12,' ');
+	}
+	output << "| " << p.m_title << p.m_desc
+		   << "(" << s  << p.m_price << " € |";
 	return output; 
 }

@@ -24,23 +24,27 @@ Magasin::~Magasin(){
 	}
 	std::cout << std::endl << "	😈😈Destructor😈😈" << std::endl;
 	std::cout << "	Cool 😜 😜 😜 cool " << std::endl;
-	std::cout << "🤔🤔🤔 je te laisse la QUESTION 8" << std::endl;
 }
 
 // Ajouter un nouveau produit au magasin
 void Magasin::add_product(std::string title, std::string desc, int qtt, float price){
 	Product* p = new Product(title, desc, qtt, price);
 	m_products.push_back(p);
-	std::cout<<" Product add. "<<std::endl;
+	//std::cout<<" Product add. "<<std::endl;
 }
 
 
 // Afficher à lécran tous les produits du magasin
 void Magasin::display_product(){
+	std::cout <<" ___________________________________________________________________________________ " << std::endl
+			  <<"|  Products                                                                         |" << std::endl
+			  <<" ___________________________________________________________________________________ " << std::endl
+			  <<"| Title               Description                             Quantity    Price     |" << std::endl;
 	int a = m_products.size();
 	for (int i=0; i<a; i++){
 		std::cout<< *m_products.at(i)<<std::endl;
 	}
+	std::cout <<" ___________________________________________________________________________________ " << std::endl;
 }
 
 // Afficher un produit à partir de son nom 
@@ -51,7 +55,7 @@ void Magasin::display_select_product(std::string title){
 		int a = m_products.size();
 		Product* p = nullptr;
 		for (int i=0; i<a; i++){
-			if (title == m_products.at(i)->getTitle())
+			if (title.compare(m_products.at(i)->getTitle()) == 1)
 				p = m_products.at(i);
 		}
 		if (p != nullptr)
@@ -68,7 +72,7 @@ void Magasin::update_product_quantity(std::string title, int new_qtt){
 	else{
 		int a = m_products.size();
 		for (int i=0; i<a; i++){
-			if (title == m_products.at(i)->getTitle())
+			if (title.compare(m_products.at(i)->getTitle())==1)
 				m_products.at(i)->setQtt(new_qtt);
 		}
 	}
@@ -79,15 +83,22 @@ void Magasin::add_client(std::string nom, std::string prenom){
 	static int count = 0;
 	int id = count++;
 	std::vector<Product* > panier;
-	Client* c = new Client(id, nom, prenom, panier);
+	Client* c = new Client(id, prenom, nom, panier);
 	m_clients.push_back(c);
 }
 
 // Afficher à l'écran tous les clients du magasin
 void Magasin::display_client(){
 	int a = m_clients.size();
-	for (int i=0; i<a; i++)
-		std::cout<< *m_clients.at(i)<<std::endl;
+
+	std::cout <<" ___________________________________________________________________________________ " << std::endl
+		  	  <<"|  Clients                                                                          |" << std::endl
+		 	  <<" ___________________________________________________________________________________ " << std::endl
+			  <<"| Uid	Identity  " << std::endl;
+	for (int i=0; i<a; i++){
+		std::cout<< "| "<< m_clients.at(i)->getUid() <<" 	"<< m_clients.at(i)->getNom() <<" "<< m_clients.at(i)->getPrenom() << std::endl;	
+	}
+	std::cout <<" ___________________________________________________________________________________ " << std::endl;
 }
 
 // Afficher un client à partir de son nom, prénom
@@ -98,7 +109,7 @@ void Magasin::display_select_clt(std::string nom, std::string prenom){
 		int a = m_clients.size();
 		Client* c = nullptr;
 		for (int i=0; i<a; i++){
-			if(nom == m_clients.at(i)->getNom() || prenom == m_clients.at(i)->getPrenom())
+			if(nom.compare(m_clients.at(i)->getNom())==1 || prenom.compare(m_clients.at(i)->getPrenom())==1)
 				c = m_clients.at(i);
 		}
 		if(c == nullptr) std::cout<<" No client named : "<< nom <<std::endl;
@@ -132,21 +143,21 @@ Product* Magasin::return_product(std::string& title){
 	else {
 		int a = m_products.size();
 		for (int i=0; i<a; i++)
-			if (title == m_products.at(i)->getTitle())
+			if (title.compare( m_products.at(i)->getTitle())==1)
 				p = m_products.at(i);
 		return p;
 	}
 }
 
 // Ajoute un produit au panier d'un client sélectionné à partir de son nom
-void Magasin::add_product_clt(std::string title, std::string prenom_clt, std::string nom_clt){
+void Magasin::add_product_clt(std::string title, std::string& nom_clt, std::string& prenom_clt){
 	if (m_clients.empty()){
 		add_client(prenom_clt, nom_clt); // ajout du client
 		m_clients.front()->add_product(return_product(title)); // ajout du produit sélectionner par son titre au panier du client  
 	}
 	int a =m_clients.size();
 	for (int i=0; i<a; i++)
-		if(m_clients.at(i)->getNom() == nom_clt){
+		if(nom_clt.compare(m_clients.at(i)->getNom())==1){
 			if (return_product(title) != nullptr){
 				m_clients.at(i)->add_product(return_product(title));
 				std::cout<<" Adding product " << title << " to cart of " << nom_clt << std::endl;
@@ -174,26 +185,26 @@ void Magasin::add_product_clt(std::string title, int id_clt){
 }
 
 // supprimer un produit du panier d'un client 
-void Magasin::del_product_clt(std::string& title,std::string& prenom_clt, std::string& nom_clt){
+void Magasin::del_product_clt(std::string& title,std::string& nom_clt, std::string& prenom_clt){
 	if (m_clients.empty())
 		std::cout<<" No product to delete."<<std::endl;
 	else {
 		int a = m_clients.size();
 		for (int i=0; i<a; i++)
-			if (m_clients.at(i)->getNom() == nom_clt && m_clients.at(i)->getPrenom() == prenom_clt)
+			if (nom_clt.compare(m_clients.at(i)->getNom()) == 1 && prenom_clt.compare(m_clients.at(i)->getPrenom()) == 1)
 				m_clients.at(i)->del_product(title);
 		std::cout << "Deletion of the product "<< title << "from cart. " << std::endl;
 	}		
 }
 
 // modifier la quantiter de produit du panier d'un client
-void Magasin::qtt_product_clt(std::string& title, std::string& prenom_clt, std::string& nom_clt, int new_qtt){
+void Magasin::qtt_product_clt(std::string& title, std::string& nom_clt, std::string& prenom_clt, int new_qtt){
 	if (m_clients.empty())
 		std::cout<<" Nothing to do. "<<std::endl;
 	else {
 		int a = m_clients.size();
 		for (int i=0; i<a; i++)
-			if (m_clients.at(i)->getNom() == nom_clt && m_clients.at(i)->getPrenom() == prenom_clt)
+			if (nom_clt.compare(m_clients.at(i)->getNom()) == 1 && prenom_clt.compare(m_clients.at(i)->getPrenom()) == 1)
 				m_clients.at(i)->modify_product(title, new_qtt);	
 	}
 }
@@ -251,15 +262,16 @@ void Magasin::display_orders_clt(int id_clt){
 			std::cout <<  *clt << std::endl;
 	}
 }
-std::vector<Product*> Magasin::getm_products() const
-{
-	return m_products;
+
+Client* Magasin::return_client(std::string nom, std::string prenom){
+	Client *c = nullptr;
+	if (!m_clients.empty()){
+		int a = m_clients.size();
+		for (int i=0; i<a; i++){
+			if(nom.compare(m_clients.at(i)->getNom()) == 1 || prenom.compare(m_clients.at(i)->getPrenom()) == 1)
+				c = m_clients.at(i);
+		}
+	}
+	return c;
 }
-std::vector<Client*> Magasin::getm_clients() const
-{
-	return m_clients;
-}
-std::vector<Commande*> Magasin::getm_orders() const 
-{
-	return m_orders;
-}
+
